@@ -7,13 +7,14 @@ This is a simple graphical user interface (GUI) for scrcpy. It allows easy confi
 ## Run from source
 
 Init NodeJS
-    ```bash
+
     npm install
-    ```
+    
+    
 Run script
-    ```bash
+
     npm start
-    ```
+
 or just use start.bat on Windows
 
 ## Authors
