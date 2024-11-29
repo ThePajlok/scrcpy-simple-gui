@@ -3,7 +3,7 @@
 This is a simple graphical user interface (GUI) for scrcpy. It allows easy configuration of video, audio, and other settings before starting the scrcpy session.
 
 
-![screenshot](assets/scrcpy_gui.jpg)
+![screenshot](scrcpy_gui.jpg)
 
 ## Authors
 
