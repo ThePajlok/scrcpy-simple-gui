@@ -1,0 +1,16 @@
+{
+  "name": "scrcpy_simple_gui",
+  "version": "0.2.0",
+  "description": "Graphical User Interface for scrcpy",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [],
+  "author": "paylok",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^33.2.1"
+  }
+}

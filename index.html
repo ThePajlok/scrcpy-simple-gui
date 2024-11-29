@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrcpy Simple GUI v0.2</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><b>scrcpy</b> Simple GUI<small style="font-size:14px"><b>v0.2</b></small></h1>
+          <form id="executeForm">
+            <div class="kols">
+            <div class="kolumny">
+              <h3><b>Video</b></h3>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="resolution">Resolution</label>
+                      <select id="resolution">
+                          <option value="" selected>Native resolution (default)</option>
+                          <option value="--max-size=640">360p (potato mode)</option>
+                          <option value="--max-size=1024">540p</option>
+                          <option value="--max-size=1280">720p</option>
+                          <option value="--max-size=1920">1080p</option>
+                          <option value="--max-size=3840">2160p (if supported)</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="vcodec">Video codec</label>
+                      <select id="vcodec">
+                          <option selected value="--video-codec=h264">H264 (defualt)</option>
+                          <option value="--video-codec=h265">H265</option>
+                          <option value="--video-codec=av1">AV1 (may not be supported)</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="vbitrate">Bitrate</label>
+                      <select id="vbitrate">
+                          <option value="--video-bit-rate=2M" selected>2 MBit/s (default)</option>
+                          <option value="--video-bit-rate=4M">4 MBit/s</option>
+                          <option value="--video-bit-rate=6M">6 MBit/s</option>
+                          <option value="--video-bit-rate=8M">8 MBit/s</option>
+                          <option value="--video-bit-rate=10M">10 MBit/s</option>
+                          <option value="--video-bit-rate=12M">12 MBit/s</option>
+                          <option value="--video-bit-rate=14M">14 MBit/s</option>
+                          <option value="--video-bit-rate=16M">16 MBit/s</option>
+                          <option value="--video-bit-rate=18M">18 MBit/s</option>
+                          <option value="--video-bit-rate=20M">20 MBit/s</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="fps">FPS</label>
+                      <select id="fps">
+                        <option value="--max-fps=5">5</option>
+                        <option value="--max-fps=10">10</option>
+                        <option value="--max-fps=15">15</option>
+                        <option value="--max-fps=20">20</option>
+                        <option selected value="--max-fps=30">30 (default)</option>
+                        <option value="--max-fps=60">60</option>
+                        <option value="--max-fps=60">90</option>
+                        <option value="--max-fps=120">120</option>
+                      </select>
+                  </div>
+              </div>
+            </div>
+            <div class="kolumny"><h3><b>Audio</b></h3>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="acodec">Audio codec</label>
+                      <select id="acodec">
+                          <option id="opus" value="--audio-codec=opus" selected>Opus (default)</option>
+                          <option id="aac" value="--audio-codec=aac">AAC</option>
+                          <option id="flac" value="--audio-codec=flac">Flac</option>
+                          <option id="raw" value="--audio-codec=raw">RAW</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="abitrate">Audio Bitrate</label>
+                      <select id="abitrate">
+                          <option id="64k" value="--audio-bit-rate=64K">64Kbps</option>
+                          <option id="128k" value="--audio-bit-rate=128K" selected>128Kbps (default)</option>
+                          <option id="192k" value="--audio-bit-rate=192K">192Kbps</option>
+                          <option id="256k" value="--audio-bit-rate=256K">256kbps</option>
+                          <option id="320k" value="--audio-bit-rate=320K">320bps</option>
+                          <option id="RAW" disabled value="">RAW</option>
+                      </select>
+                  </div>
+              </div>
+              <h3><b>Other</b></h3>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="gamepad">Gamepad support</label>
+                      <select id="gamepad">
+                        <option selected value="--gamepad=disabled">Disabled</option>
+                        <option value="--gamepad=uhid">UHID</option>
+                        <option value="--gamepad=aoa">AOAv2</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="keyboard">Keyboard support</label>
+                      <select id="keyboard">
+                        <option selected value="--keyboard=sdk">SDK (default)</option>
+                        <option value="--keyboard=uhid">UHID</option>
+                        <option value="--keyboard=aoa">AOAv2</option>
+                        <option value="--keyboard=disabled">Disabled</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                      <label for="mouse">Mouse support</label>
+                      <select id="mouse">
+                        <option selected value="--mouse=sdk">SDK (default)</option>
+                        <option value="--mouse=uhid">UHID</option>
+                        <option value="--mouse=aoa">AOAv2</option>
+                        <option value="--mouse=disabled">Disabled</option>
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="device_connection">Device selection</label>
+                      <select id="device_connection">
+                          <option selected value="">Auto</option>
+                          <option value="--select-usb">USB</option>
+                          <option value="--select-tcpip">TCPIP</option>
+                      </select>
+                  </div>
+                </div>
+            </div>
+            </div>
+            <input type="hidden" id="scrcpy_path" value="F:\\scrcpy-win64-v2.6.1\\scrcpy.exe">
+            <div class="form-group">
+                <button type="submit">Start scrcpy</button>
+            </div>
+          </form>
+          <footer><small>Design and programming by <b>paylok</b></small></footer>
+    </div>
+    <script src="./renderer.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const acodecSelect = document.getElementById("acodec");
+          const abitrateSelect = document.getElementById("abitrate");
+
+          acodecSelect.addEventListener("change", () => {
+              if (acodecSelect.value === "--audio-codec=raw") {
+                  // Set the value to RAW and disable other options
+                  abitrateSelect.value = "";
+                  abitrateSelect.querySelectorAll("option").forEach(option => {
+                      if (option.id !== "RAW") {
+                          option.disabled = true;
+                      }
+                  });
+              } else {
+                  // Enable all options when RAW is not selected in acodec
+                  abitrateSelect.querySelectorAll("option").forEach(option => {
+                      option.disabled = false;
+                  });
+                  // Disable the RAW option in abitrate
+                  abitrateSelect.querySelector("option#RAW").disabled = true;
+              }
+          });
+      });
+    </script>
+</body>
+</html>
